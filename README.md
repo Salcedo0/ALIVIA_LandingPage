@@ -1,6 +1,11 @@
 # ALIVIA Landing Page
 
-Landing page moderna para ALIVIA, una plataforma de salud digital hecha para Colombia. El sitio está construido con React + Vite, CSS Modules, variables CSS globales, GSAP ScrollTrigger y Lenis.
+Landing page moderna para ALIVIA, una plataforma de salud digital hecha para Colombia, lo construi para hacer un showcase de lo que podria llegar a ser la aplicacion en caso de que las personas interesadas en construirla con novanest acepten el proyecto, todo es early version, en pre produccion, cualquier cambio lo estare actualizando en git.
+
+
+
+
+El sitio está construido con React + Vite, CSS Modules, variables CSS globales, GSAP ScrollTrigger y Lenis.
 
 ## Screenshots
 
