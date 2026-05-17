@@ -1,0 +1,169 @@
+.section {
+  position: relative;
+  background: var(--color-bg);
+}
+
+.cinematic {
+  position: relative;
+  height: 300vh;
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 680px;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.handImage {
+  position: absolute;
+  bottom: -9%;
+  left: 50%;
+  z-index: 1;
+  width: clamp(300px, 38vw, 470px);
+  max-width: none;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(40%);
+  transform-origin: center bottom;
+}
+
+.cinematicPhoneWrap {
+  position: relative;
+  z-index: 2;
+  transform: translateY(60vh) scale(0.85);
+}
+
+.cinematicPhone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(74vw, 280px);
+  aspect-ratio: 1 / 2;
+  border-radius: var(--radius-phone);
+  background: var(--color-phone-body);
+  box-shadow:
+    0 0 0 4px var(--color-phone-edge),
+    0 30px 60px rgba(var(--color-dark-rgb), 0.4),
+    0 80px 120px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.cinematicScreen {
+  position: absolute;
+  inset: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 36px;
+  background: var(--color-dark);
+}
+
+.cinematicLogo,
+.cinematicApp {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cinematicApp {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-bright));
+}
+
+.logoSvg {
+  width: 140px;
+  height: auto;
+}
+
+.finalStage {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  padding: clamp(24px, 6vw, 80px);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.sideText {
+  grid-column: 1;
+  justify-self: end;
+  max-width: 360px;
+  padding-right: clamp(28px, 5vw, 72px);
+}
+
+.sideText h2 {
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.phoneDock {
+  grid-column: 2;
+  justify-self: center;
+  transform-origin: center;
+}
+
+@media (max-width: 900px) {
+  .pin {
+    min-height: 640px;
+  }
+
+  .finalStage {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .sideText {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic {
+    height: auto;
+  }
+
+  .pin {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 80px 0;
+  }
+
+  .handImage,
+  .cinematicPhoneWrap {
+    display: none;
+  }
+
+  .finalStage {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}

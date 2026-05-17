@@ -1,0 +1,129 @@
+.finalCta {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+  color: var(--color-surface);
+  text-align: center;
+}
+
+.finalCta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.12), transparent 60%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.inner {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.inner h2 {
+  margin-bottom: 20px;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.inner h2 em {
+  color: var(--color-accent);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.inner > p {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  color: rgba(var(--color-surface-rgb), 0.75);
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.primary,
+.outline {
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.3);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.primary:hover {
+  color: var(--color-dark);
+  box-shadow: 0 14px 40px rgba(var(--color-accent-rgb), 0.5);
+  transform: scale(1.05) translateY(-2px);
+}
+
+.outline {
+  border: 1px solid rgba(var(--color-surface-rgb), 0.3);
+  background: transparent;
+  color: var(--color-surface);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.outline:hover {
+  border-color: rgba(var(--color-surface-rgb), 0.5);
+  background: rgba(var(--color-surface-rgb), 0.1);
+}
+
+.footerMeta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footerLine {
+  color: rgba(var(--color-surface-rgb), 0.5);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
+.heroToggle {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(var(--color-surface-rgb), 0.12);
+  border-radius: 50%;
+  background: rgba(var(--color-surface-rgb), 0.04);
+  color: rgba(var(--color-surface-rgb), 0.28);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.heroToggle:hover,
+.heroToggle:focus-visible {
+  border-color: rgba(var(--color-surface-rgb), 0.38);
+  background: rgba(var(--color-surface-rgb), 0.1);
+  color: rgba(var(--color-surface-rgb), 0.72);
+}

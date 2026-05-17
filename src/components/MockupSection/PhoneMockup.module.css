@@ -1,0 +1,250 @@
+/* Internal design canvas: 390 × 844 (iPhone 16 Pro). Frame: 406 × 860. */
+
+.mockup {
+  display: grid;
+  justify-items: center;
+}
+
+.phoneFrame {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(260px, 80vw, 360px);
+  aspect-ratio: 406 / 860;
+  padding: 8px;
+  border-radius: 62px;
+  background: linear-gradient(135deg, #1d1d1f 0%, #0a0a0c 100%);
+  box-shadow:
+    0 50px 100px rgba(13, 30, 70, 0.25),
+    0 20px 40px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
+}
+
+/* Decorative side buttons */
+.phoneFrame::before,
+.phoneFrame::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  width: 4px;
+  border-radius: 2px;
+  background: #2b2b2e;
+}
+
+.phoneFrame::before {
+  top: 22%;
+  height: 8%;
+}
+
+.phoneFrame::after {
+  top: 32%;
+  height: 14%;
+}
+
+.phoneScreen {
+  position: absolute;
+  inset: 8px;
+  overflow: hidden;
+  border-radius: 54px;
+  background: #000;
+}
+
+/* 390x844 internal design canvas. Scaled via CSS variable. */
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: scale(calc(100% / 390 * var(--phone-screen-width, 344)));
+}
+
+/* Use container query–like approach: scale based on phoneScreen width. */
+@supports (container-type: inline-size) {
+  .phoneScreen {
+    container-type: inline-size;
+  }
+
+  .canvas {
+    transform: scale(calc(100cqw / 390));
+  }
+}
+
+.screensTrack {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.screen {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Aísla el scroll: rueda/touch dentro del mockup queda atrapado y
+   no propaga al scroll de la página. */
+.screen > div {
+  overscroll-behavior: contain;
+}
+
+/* Oculta la scrollbar de los contenedores internos sin perder scroll. */
+.canvas,
+.canvas * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.canvas::-webkit-scrollbar,
+.canvas *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.dynamicIsland {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  z-index: 100;
+  width: 31%;
+  max-width: 122px;
+  height: 4.2%;
+  max-height: 36px;
+  min-height: 24px;
+  border-radius: 999px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+.homeIndicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  z-index: 100;
+  width: 34%;
+  max-width: 134px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(-50%);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+/* Telecall ring + pulse animations */
+.callRing {
+  animation: alivia-ring 2.2s ease-out infinite;
+}
+
+.livePulse {
+  animation: alivia-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes alivia-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes alivia-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ── Caption block below the phone ─────────────────────────── */
+.mockupText {
+  max-width: 480px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.compactText {
+  margin-top: 16px;
+}
+
+.compactText .mockupNav {
+  margin-top: 0;
+}
+
+.stepLabel {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.mockupText h2 {
+  margin-bottom: 16px;
+  color: var(--color-primary);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  transition: opacity 0.3s ease;
+}
+
+.titleVisible {
+  opacity: 1;
+}
+
+.titleHidden {
+  opacity: 0;
+}
+
+.mockupText p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.mockupNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.navArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navArrow:hover {
+  background: rgba(var(--color-primary-rgb), 0.15);
+}
+
+.navArrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(var(--color-primary-rgb), 0.2);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    width 0.3s ease;
+}
+
+.dotActive {
+  width: 24px;
+  background: var(--color-primary);
+}
