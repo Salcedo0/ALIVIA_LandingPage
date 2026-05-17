@@ -7,6 +7,8 @@ Landing page moderna para ALIVIA, una plataforma de salud digital hecha para Col
 
 El sitio está construido con React + Vite, CSS Modules, variables CSS globales, GSAP ScrollTrigger y Lenis.
 
+### Desarollado por Juan Andres Salcedo - estudiante de ingenieria de sistemas en EAFIT
+
 ## Screenshots
 
 ### Desktop
@@ -57,12 +59,6 @@ src/
 ```bash
 npm install
 npm run dev
-```
-
-The local app runs on Vite, usually at:
-
-```txt
-http://localhost:5173
 ```
 
 ## Build
