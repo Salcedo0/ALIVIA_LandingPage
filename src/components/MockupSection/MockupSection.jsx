@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import handImage from '../../assets/hand.png';
+import handImage from '../../assets/hand2.0.png';
 import PhoneMockup from './PhoneMockup.jsx';
 import styles from './MockupSection.module.css';
 
